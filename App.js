@@ -1,14 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+
+
+import { StyleSheet, View } from 'react-native';
+
+import Navigator from './src/navigation/index';
+
+import {Amplify, Auth} from 'aws-amplify';
+
+import awsconfig from './src/aws-exports';
+
+import {withAuthenticator} from 'aws-amplify-react-native';
+
+Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
+
+ function App() {
+
+  // Auth.currentAuthenticatedUser().then((data) => console.log(data));
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Navigator>
+      <View style={styles.container}>
+
+        {/* <CreatePostScreen/> */}
+        {/* <FeedScreen/> */}
+
+        <StatusBar style="auto" />
+      </View>
+    </Navigator>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +38,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default withAuthenticator(App);

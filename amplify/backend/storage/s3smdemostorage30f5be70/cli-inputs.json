@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3smdemostorage30f5be70",
+  "bucketName": "sm-demo-storage-30f5be70",
+  "policyUUID": "79af7337",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
